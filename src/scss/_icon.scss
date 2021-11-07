@@ -1,0 +1,116 @@
+//icon
+$icons: (
+  alert: icon-alert,
+  back: icon-back,
+  bell: icon-bell,
+  caseFile: icon-caseFile,
+  checkPeople: icon-checkPeople,
+  closeArrow: icon-closeArrow,
+  controlPeople: icon-controlPeople,
+  deploy: icon-deploy,
+  editLayer: icon-editLayer,
+  exit: icon-exit,
+  firemanCar: icon-firemanCar,
+  handover: icon-handover,
+  hierarchy: icon-hierarchy,
+  layer: icon-layer,
+  location: icon-location,
+  move: icon-move,
+  openArrow: icon-openArrow,
+  pin: icon-pin,
+  points: icon-points,
+  save: icon-save,
+  search: icon-search,
+  setting: icon-setting,
+  surface: icon-surface,
+  waterLine: icon-waterLine,
+);
+
+%iconHover {
+  // cursor: pointer;
+  &:hover {
+    filter: brightness(0.8);
+  }
+  &:active {
+    filter: brightness(1.1);
+  }
+}
+
+//把 icon 套進去 class
+@mixin set-icon($icon, $value) {
+  .icon-#{$icon} {
+    &:before {
+      content: "";
+      background-image: url(../images/#{$value}.svg);
+      background-size: cover;
+    }
+  }
+}
+@each $icon, $value in $icons {
+  @include set-icon($icon, $value);
+}
+
+@mixin iconSize($iconSize) {
+  height: $iconSize;
+  width: $iconSize;
+}
+
+.icon {
+  &-size-xs {
+    &::before {
+      display: inline-block;
+      @include iconSize(0.75rem);
+      vertical-align: text-bottom;
+      background-repeat: no-repeat;
+    }
+  }
+  &-size-sm {
+    &::before {
+      display: inline-block;
+      @include iconSize(1rem);
+      vertical-align: text-bottom;
+      background-repeat: no-repeat;
+    }
+  }
+  &-size-md {
+    &::before {
+      display: inline-block;
+      @include iconSize(1.5rem);
+      vertical-align: text-bottom;
+      background-repeat: no-repeat;
+    }
+  }
+  &-size-lg {
+    &::before {
+      display: inline-block;
+      @include iconSize(2rem);
+      vertical-align: text-bottom;
+      background-repeat: no-repeat;
+    }
+  }
+  &-size-xl {
+    &::before {
+      display: inline-block;
+      @include iconSize(2.5rem);
+      vertical-align: text-bottom;
+      background-repeat: no-repeat;
+    }
+  }
+  &-size-xxl {
+    &::before {
+      display: inline-block;
+      @include iconSize(3rem);
+      vertical-align: text-bottom;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+// .disable {
+//   filter: contrast(0);
+//   pointer-events: none;
+//   cursor: not-allowed !important;
+//   &:hover {
+//     filter: contrast(0);
+//   }
+// }
